@@ -7,6 +7,9 @@ const int SIZE = 100;
 void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
                  int size, const std::string &filename);
 void print_matrix();
+void add_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]);
+void subtract_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]);
+void multiply_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]);
 
 int main() {
   int first_matrix[SIZE][SIZE];
@@ -23,13 +26,21 @@ int main() {
 }
 
 void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
-                 int size, const std::string &filename) {
-  std::ifstream File(filename);
+                 int &size, const std::string &filename) {
 
-  std::string myText;
-  while (getline (File, myText)) {
-    // Output the text from the file
-    std::cout << myText;
+  std::ifstream File(filename);
+  File >> size;
+
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+        File >> first_matrix[i][j];
+    }
+  }
+
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+        File >> second_matrix[i][j];
+    }
   }
 
   File.close();
