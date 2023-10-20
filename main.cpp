@@ -18,7 +18,7 @@ int main() {
   std::printf("Aryan Kevat\n");
   std::printf("Lab #6: Matrix manipulation\n\n");
 
-  read_matrix(first_matrix, second_matrix, size, "input");
+  read_matrix(first_matrix, second_matrix, size, "matrix_input.txt");
   std::cout << "Matrix A:\n";
   print_matrix(first_matrix, size);
   std::cout << "\nMatrix B:\n";
