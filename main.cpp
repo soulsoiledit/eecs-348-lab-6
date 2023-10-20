@@ -15,29 +15,43 @@ int main() {
   int result_matrix[MAX_SIZE][MAX_SIZE];
   int size;
 
+  std::printf("Aryan Kevat\n");
+  std::printf("Lab #6: Matrix manipulation\n\n");
+
   read_matrix(first_matrix, second_matrix, size, "input");
-  //
-  //
-  //
-  //
+  std::cout << "Matrix A:\n";
+  print_matrix(first_matrix, size);
+  std::cout << "\nMatrix B:\n";
+  print_matrix(second_matrix, size);
+
+  std::cout << "\nMatrix Sum (A + B):\n";
+  add_matrices(first_matrix, second_matrix, size, result_matrix);
+  print_matrix(result_matrix, size);
+
+  std::cout << "\nMatrix Product (A * B):\n";
+  multiply_matrices(first_matrix, second_matrix, size, result_matrix);
+  print_matrix(result_matrix, size);
+
+  std::cout << "\nMatrix Difference (A - B):\n";
+  subtract_matrices(first_matrix, second_matrix, size, result_matrix);
+  print_matrix(result_matrix, size);
+
   return 0;
 }
 
-void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
-                 int &size, const std::string &filename) {
-
+void read_matrix(int first_matrix[MAX_SIZE][MAX_SIZE], int second_matrix[MAX_SIZE][MAX_SIZE], int &size, const std::string &filename) {
   std::ifstream File(filename);
   File >> size;
 
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {
-        File >> first_matrix[i][j];
+      File >> first_matrix[i][j];
     }
   }
 
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {
-        File >> second_matrix[i][j];
+      File >> second_matrix[i][j];
     }
   }
 
