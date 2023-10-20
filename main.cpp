@@ -43,6 +43,26 @@ void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
 
   File.close();
 }
+
+void print_matrix(int matrix[MAX_SIZE][MAX_SIZE], int &size) {
+  int padding[MAX_SIZE] = {};
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+      std::string num_str = std::to_string(matrix[i][j]);
+      if (num_str.length() > padding[j]) {
+        padding[j] = num_str.length();
+      }
+    }
+  }
+
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+      std::printf("%*d ", padding[j], matrix[i][j]);
+    }
+    std::cout << "\n";
+  }
+}
+
 void add_matrices(int matrixA[MAX_SIZE][MAX_SIZE], int matrixB[MAX_SIZE][MAX_SIZE], int &size, int result[MAX_SIZE][MAX_SIZE]) {
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {
