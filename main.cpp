@@ -7,9 +7,6 @@ const int SIZE = 100;
 void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
                  int size, const std::string &filename);
 void print_matrix();
-void add_matrices();
-void subtract_matrices();
-void multiply_matrices();
 
 int main() {
   int first_matrix[SIZE][SIZE];
@@ -38,3 +35,30 @@ void read_matrix(int first_matrix[SIZE][SIZE], int second_matrix[SIZE][SIZE],
   File.close();
 }
 // functions go here
+void add_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]) {
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+        result[i][j] = matrix1[i][j] + matrix2[i][j];
+    }
+  }
+}
+
+void subtract_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]) {
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+        result[i][j] = matrix1[i][j] - matrix2[i][j];
+    }
+  }
+}
+
+void multiply_matrices(int matrix1[SIZE][SIZE], int matrix2[SIZE][SIZE], int &size, int result[SIZE][SIZE]) {
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+        int dot_product = 0;
+        for (int k = 0; k < size; k++) {
+            dot_product += matrix1[i][k] * matrix2[k][j];
+        }
+        result[i][j] = dot_product;
+    }
+  }
+}
